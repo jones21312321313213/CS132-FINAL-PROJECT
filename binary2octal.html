@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <link rel ="stylesheet" type="text/css" href="title.css">
+    <link rel ="stylesheet" type="text/css" href="text.css">
+    <link rel ="stylesheet" type="text/css" href="binary2dec.css">
+    <link rel ="stylesheet" type="text/css" href="button.css">
+    
+    <title>Binary to Octal</title>
+
+
+    <style>
+        /* this is for the input bar so that there will be no scroll/arrow in the left */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      display: none;
+    }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="main.html">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <h1>Number Conversion System </h1>
+        </a>
+    </header>
+    
+    <main>
+        <form id="none" name="calcform" autocomplete="off">
+        <div class="wrap">
+            <div id="illit">
+                <h1 id="no">Binary to Octal Converter</h1>
+            </div>
+           
+            <div class="row">
+                <div class="col">
+                    <label for="unit1"><h2 class="f2 " data-text="from" style="left:70px; top:-60px;">From</h2></label>
+                        <!-- class="form-control" -->
+                    <select id="unit1" style="left:-30px; height:40px; font-size:18px;">
+                           <option value="Binary"selected>Binary</option>
+                           <option value="Decimal">Decimal</option>
+                           <option value="Octal" >Octal</option>
+                           <option value="Hex">Hexadecimal</option> 
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="unit2"><h2 class="f2" data-text="To" style="left:-10px; top:-60px">To</h2></label>
+                    <select id="unit2" style="left:-50px; height:40px; font-size:18px;">
+                           <option value="binary">Binary</option>
+                           <option value="decimal">Decimal</option>
+                           <option value="octal" selected>Octal</option>
+                           <option value="hex">Hexadecimal</option> 
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="enter">
+                <label><h2 class="yes">Enter Binary Number</h2></label>
+                <!-- class="form-control form-control-lg"  -->
+                <input type="number" step="any" id="input" name="x" placeholder="Binary Input" required autofocus>
+                <div id="vegtables">
+                    <span id="fruits">
+                        <sub>2</sub>
+                    </span>
+                </div>
+            </div>
+
+            <button type="button" title="Convert" class="btn1 btn" onclick="binary2octal()">
+            <span>Convert</span>
+            </button>
+
+            <button type="reset" title="Reset" class="btn2 btn" onclick="reset()">
+                <span>Reset</span>
+             </button>
+    
+
+             <div class="enter2">
+                <label><h2 class="yes">Octal Number</h2></label>
+                <!-- class="form-control form-control-lg"  -->
+                <input type="number" step="any" id="output" name="xd" placeholder="Octal Output" readonly>
+                <div id="vegtables">
+                    <span id="fruits">
+                        <sub>8</sub>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+        </form>
+    </main>
+
+
+
+
+
+    <script type="text/javascript">
+        var sel1 = document.getElementById("unit1");
+        var sel2 = document.getElementById("unit2");
+        
+        sel1.addEventListener("change", check);
+        sel2.addEventListener("change", check);
+        
+        function check() {
+            var selOpt1 = sel1.options[sel1.selectedIndex].value;
+            var selOpt2 = sel2.options[sel2.selectedIndex].value;
+        
+            if (selOpt1 === "Binary" && selOpt2 === "decimal") {
+                window.location.href="binary2dec.html" ;
+                 }
+            else if(selOpt1 === "Binary" && selOpt2 === "octal"){
+        
+                window.location.href="binary2octal.html";
+                 }
+        
+            else if(selOpt1 === "Binary" && selOpt2 === "hex"){
+                window.location.href="binary2hexa.html";
+                 }
+            
+            else if(selOpt1 === "Binary" && selOpt2 === "octal"){
+        
+                window.location.href="binary2octal.html";
+                 }
+        
+            else if(selOpt1 ==="Decimal" && selOpt2 ==="binary"){
+                window.location.href="dec2binary.html";
+                }
+            else if(selOpt1 ==="Decimal" && selOpt2 ==="octal"){
+                window.location.href="dec2octal.html";
+                }
+            else if(selOpt1 ==="Decimal" && selOpt2 ==="hex"){
+                window.location.href="dec2hexa.html";
+                }
+        
+            else if(selOpt1 ==="Octal" && selOpt2 ==="binary"){
+                window.location.href="octal2bin.html";
+                }
+            else if(selOpt1 ==="Octal" && selOpt2 ==="decimal"){
+                window.location.href="octal2dec.html";
+                }
+            else if(selOpt1 ==="Octal" && selOpt2 ==="hex"){
+                window.location.href="octal2hexa.html";
+                }
+        
+            else if(selOpt1 ==="Hex" && selOpt2 ==="binary"){
+                window.location.href="hexa2bin.html";
+                } 
+            else if(selOpt1 ==="Hex" && selOpt2 ==="decimal"){
+                window.location.href="hexa2dec.html";
+                }
+            else if(selOpt1 ==="Hex" && selOpt2 ==="octal"){
+                window.location.href="hexa2octal.html";
+                }        
+            }
+
+
+
+
+
+            function binary2octal() {
+        const binaryInput = document.getElementById('input');
+        const octalOutput = document.getElementById('output');
+
+        const binaryValue = binaryInput.value.trim(); 
+        if (/^[01]+$/.test(binaryValue)) {
+          
+            const decimalValue = BigInt('0b' + binaryValue); // Parse binary string as BigInt
+             const octalValue = decimalValue.toString(8); // Convert to octal
+             octalOutput.value = octalValue;
+        } else {
+            alert('Enter digits 0 and 1 only.   ');
+            octalOutput.value = '';
+        }
+    }
+     </script>
+</body>
+</html>

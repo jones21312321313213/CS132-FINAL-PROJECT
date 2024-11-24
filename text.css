@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Scribble&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tac+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@400..700&family=Tac+One&family=Workbench&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Workbench&display=swap');
+
+#unit1{
+    position:relative;
+    left:30px;
+    width:250px;
+}
+#unit2{
+    position:relative;
+    right:30px;
+    width:250px;
+}
+
+#none{
+height:500px;
+ width:100%;
+ margin-left:auto;
+ margin-right:auto;
+}
+
+
+.col:nth-child(1){
+    position: absolute; 
+}
+
+.col:nth-child(2){
+    position:relative;
+    float:right;
+   
+}
+
+.row{
+    height:200px;
+    width:100%;
+    position:relative;
+    top: 60px;
+    
+}
+
+
+#illit{
+    display:flex;
+   align-items:center;
+   justify-content:center;
+   height:100px;
+   width:100%;
+   margin:0;
+   padding:0;
+}
+
+#f1{
+position: absolute;
+ text-align:center;
+  margin:0;
+  top:100px;
+  padding:0;
+  color:#111;
+  font-size:5em;
+  font-family:'Bad Script',cursive;
+}
+
+#f1 span{
+  display:table-cell;
+  margin:0;
+  padding:0;
+  animation: animate 2s linear infinite;
+
+}
+#f1 span:nth-child(1){
+    animation-delay:0s;
+}
+#f1 span:nth-child(2){
+    animation-delay:0.25s;
+}
+#f1 span:nth-child(3){
+    animation-delay:0.5s;
+}
+#f1 span:nth-child(4){
+    animation-delay:0.75s;
+}
+#f1 span:nth-child(5){
+    animation-delay:1s;
+}
+#f1 span:nth-child(6){
+    animation-delay:1.5s;
+}
+
+@keyframes animate{
+
+    0%,100%{    
+        color: #00FF33;
+        filter:blur(1px);
+        text-shadow: 0 0 10px #00FF33,
+                     0 0 20px #00FF33,
+                     0 0 40px #00FF33,
+                     0 0 80px #00FF33,
+                     0 0 120px #00FF33,
+                     0 0 240px #00FF33;
+    }
+    
+    5%,95%{
+        color:#111;
+        filter:blur(0px);
+        text-shadow: none;
+    }
+}
+
+
+
+.f2{
+    color:black;
+    font-family:"Rubik Scribble",sans-serif;
+    transform:translate(-50%,-50%);
+    text-shadow:0 0 20px black;
+    position:relative;
+    float:left;
+    left:40px;
+
+}
+
+.f2:after{
+
+    position:absolute;
+    padding: 0 20px;
+    z-index:-1;
+    filter:blur(15px);
+}
+
+
+.f2:before{
+    content: '';
+    position:relative;
+    background:black;
+    z-index: -2;
+    opacity:.5;
+    filter: blur(40px);
+}
+
+
+#no{
+    font-family:'Tac one',sans-serif;
+}
+
+
+
+.yes{
+    font-family:'Edu NSW ACT Foundation',sans-serif;
+}
+
+
+#no{
+    font-family:'Tac one',sans-serif;
+}
+
+
+#foot {
+    color:#9A54B6;
+    margin: auto;
+    font-size: 3.5rem;
+    font-weight: 300;
+    animation: lights 5s 750ms linear infinite;
+    font-family:'Workbench',sans-serif;
+  }
+
+
+@keyframes lights {
+    0% {
+      color: hsl(230, 40%, 80%);
+      text-shadow:
+        0 0 1em hsla(320, 100%, 50%, 0.2),
+        0 0 0.125em hsla(320, 100%, 60%, 0.3),
+        -1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+        1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+    }
+    
+    30% { 
+      color: hsl(230, 80%, 90%);
+      text-shadow:
+        0 0 1em hsla(320, 100%, 50%, 0.5),
+        0 0 0.125em hsla(320, 100%, 60%, 0.5),
+        -0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+        0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+    }
+    
+    40% { 
+      color: hsl(230, 100%, 95%);
+      text-shadow:
+        0 0 1em hsla(320, 100%, 50%, 0.5),
+        0 0 0.125em hsla(320, 100%, 90%, 0.5),
+        -0.25em -0.125em 0.125em hsla(40, 100%, 60%, 0.2),
+        0.25em 0.125em 0.125em hsla(200, 100%, 60%, 0.4);
+    }
+    
+    70% {
+      color: hsl(230, 80%, 90%);
+      text-shadow:
+        0 0 1em hsla(320, 100%, 50%, 0.5),
+        0 0 0.125em hsla(320, 100%, 60%, 0.5),
+        0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+        -0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+    }
+    
+    100% {
+      color: hsl(230, 40%, 80%);
+      text-shadow:
+        0 0 1em hsla(320, 100%, 50%, 0.2),
+        0 0 0.125em hsla(320, 100%, 60%, 0.3),
+        1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+        -1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+    }
+    
+  }
